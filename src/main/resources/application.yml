@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: "java-spring-oauth2-client"
+  security:
+    oauth2:
+      client:
+        provider:
+          token-uri: ${ISSUER_URL:localhost:9000/oauth2/token}
+        registration:
+          stackcanary:
+            clientId: ${CLIENT_ID:stackcanary-client}
+            clientSecret: ${CLIENT_SECRET:stackcanary-secret}
+            authorization-grant-type: client_credentials
+            scope: employee.read employee.edit employee.create employee.delete
+
+resource-server-url: http://localhost:8081
