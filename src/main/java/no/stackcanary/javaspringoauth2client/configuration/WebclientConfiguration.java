@@ -22,7 +22,7 @@ public class WebclientConfiguration {
 
     @Primary
     @Bean
-    public ReactiveClientRegistrationRepository clientRegistrationRepository(OAuth2ClientProperties oAuth2ClientProperties) {
+    public ReactiveClientRegistrationRepository clientRegistrations(OAuth2ClientProperties oAuth2ClientProperties) {
         final List<ClientRegistration> registrations = new ArrayList<>(
                 new OAuth2ClientPropertiesMapper(oAuth2ClientProperties)
                         .asClientRegistrations()

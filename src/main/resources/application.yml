@@ -5,13 +5,18 @@ spring:
     oauth2:
       client:
         provider:
-          token-uri: ${ISSUER_URL:localhost:9000/oauth2/token}
+          stackcanary:
+            token-uri: ${ISSUER_URL:http://localhost:9000/oauth2/token}
         registration:
           stackcanary:
             clientId: ${CLIENT_ID:stackcanary-client}
             clientSecret: ${CLIENT_SECRET:stackcanary-secret}
             authorization-grant-type: client_credentials
-            scope: employee.read employee.edit employee.create employee.delete
+            scope:
+              - employee.read
+              - employee.edit
+              - employee.create
+              - employee.delete
 
 
 resource-server-url: ${RESOURCE_SERVER_URL:http://localhost:8081}

@@ -1,19 +1,13 @@
 package no.stackcanary.javaspringoauth2client.resource.dto;
 
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 
+@Builder
 public record ErrorResponse(
         int status,
         String error,
         String message,
-        LocalDateTime timestamp,
-        String path
-) {
-    public ErrorResponse(int status, String error, String message, String path) {
-        this(status, error, message, LocalDateTime.now(), path);
-    }
-
-    public ErrorResponse(int status, String error, String message) {
-        this(status, error, message, LocalDateTime.now(), null);
-    }
-}
+        LocalDateTime timestamp
+) {}
