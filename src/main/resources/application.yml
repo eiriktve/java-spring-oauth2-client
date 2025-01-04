@@ -13,4 +13,8 @@ spring:
             authorization-grant-type: client_credentials
             scope: employee.read employee.edit employee.create employee.delete
 
-resource-server-url: http://localhost:8081
+
+resource-server-url: ${RESOURCE_SERVER_URL:http://localhost:8081}
+
+server:
+  port: ${PORT:8080}

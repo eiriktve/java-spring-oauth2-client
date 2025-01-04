@@ -1,4 +1,4 @@
-package no.stackcanary.javaspringoauth2client.resource.dto;
+package no.stackcanary.javaspringoauth2client.resource.model;
 
 public record Company(
         int id,
