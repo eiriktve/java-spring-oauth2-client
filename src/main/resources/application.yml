@@ -10,7 +10,7 @@ spring:
         registration:
           stackcanary:
             clientId: ${CLIENT_ID:stackcanary-client}
-            clientSecret: ${CLIENT_SECRET:stackcanary-secret}
+            clientSecret: ${CLIENT_SECRET:hunter2}
             authorization-grant-type: client_credentials
             scope:
               - employee.read
@@ -19,7 +19,8 @@ spring:
               - employee.delete
 
 
-resource-server-url: ${RESOURCE_SERVER_URL:http://localhost:8081}
+resource-server-url: ${RESOURCE_SERVER_URL:"http://localhost:8081"}
+webclient-log-level: INFO
 
 server:
   port: ${PORT:8080}

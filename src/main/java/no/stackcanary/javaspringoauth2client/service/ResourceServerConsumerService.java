@@ -26,6 +26,7 @@ public class ResourceServerConsumerService {
     private final WebClient client;
 
     public Optional<Employee> getEmployee(String id) {
+        log.info("Fetching employee with id {} from resource server", id);
         return client.get()
                 .uri(GET_PUT_DELETE_PATH, id)
                 .attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(OAUTH_CLIENT_REGISTRATION_ID))
@@ -40,6 +41,7 @@ public class ResourceServerConsumerService {
                 .block();
     }
     public Optional<Employee> updateEmployee(String id, Employee employee) {
+        log.info("Updating employee with id {}", id);
         return client.put()
                 .uri(GET_PUT_DELETE_PATH, id)
                 .attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(OAUTH_CLIENT_REGISTRATION_ID))
@@ -56,6 +58,7 @@ public class ResourceServerConsumerService {
     }
 
     public Optional<Integer> createEmployee(Employee employee) {
+        log.info("Creating new employee with name {}", employee.firstName());
         return client.post()
                 .uri(POST_PATH)
                 .attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(OAUTH_CLIENT_REGISTRATION_ID))
@@ -68,6 +71,7 @@ public class ResourceServerConsumerService {
     }
 
     public Optional<Integer> deleteEmployee(String id) {
+        log.info("Deleting employee with id {}", id);
         return client.delete()
                 .uri(GET_PUT_DELETE_PATH, id)
                 .attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(OAUTH_CLIENT_REGISTRATION_ID))
@@ -83,6 +87,7 @@ public class ResourceServerConsumerService {
     }
 
     private Exception handleError(String path, HttpMethod method, Throwable t) {
+        log.error(t.getMessage());
         val message =  "Exception occurred when calling resource server on path " + method.name() + " " + path;
         return new ResourceServerException(message, t);
     }

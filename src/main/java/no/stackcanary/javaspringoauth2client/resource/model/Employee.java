@@ -1,7 +1,10 @@
 package no.stackcanary.javaspringoauth2client.resource.model;
 
+import lombok.Builder;
+
 import java.util.List;
 
+@Builder
 public record Employee(
         int id,
         String firstName,
@@ -10,8 +13,4 @@ public record Employee(
         String position,
         Company employer,
         List<Certification> certifications
-) {
-    public Employee(int id, String firstName, String lastName, String email, String position, Company employer) {
-        this(id, firstName, lastName, email, position, employer, List.of());
-    }
-}
+) {}
