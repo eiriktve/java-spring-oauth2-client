@@ -1,4 +1,4 @@
-package no.stackcanary.javaspringoauth2client;
+package no.stackcanary.javaspringoauth2client.error;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 @Slf4j
 public class ApiExceptionHandlerAdvice {
-
 
     @ExceptionHandler(Throwable.class)
     public ResponseEntity<ErrorResponse> fallBackHandler(Throwable e) {

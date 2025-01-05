@@ -36,7 +36,7 @@ public class ResourceServerConsumerService {
                     log.warn("Resource server returned NotFound for Employee with id {}", id);
                     return Mono.just(Optional.empty());
                 })
-                .onErrorMap(Throwable.class, t -> this.handleError(POST_PATH, HttpMethod.POST, t))
+                .onErrorMap(Throwable.class, t -> this.handleError(POST_PATH, HttpMethod.GET, t))
                 .block();
     }
     public Optional<Employee> updateEmployee(String id, Employee employee) {
