@@ -8,3 +8,4 @@ spring authorization server.
 - Spring boot 3.x
 - Oauth2 Client using the client credentials grant
 - Token protected OpenAPI docs
+- Integration tests with wiremock and WebTestClient

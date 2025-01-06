@@ -2,7 +2,6 @@ package no.stackcanary.javaspringoauth2client.error;
 
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import no.stackcanary.javaspringoauth2client.error.ResourceServerException;
 import no.stackcanary.javaspringoauth2client.resource.dto.ErrorResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

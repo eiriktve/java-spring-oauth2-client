@@ -1,0 +1,9 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          stackcanary:
+            token-uri: http://localhost:${wiremock.server.port}/oauth2/token
+
+resource-server-url: http://localhost:${wiremock.server.port}
