@@ -26,7 +26,7 @@ public class WiremockStubs {
     public static void stubGetEmployeeResourceServerOKResponse() {
         stubFor(get(urlPathMatching("/employee/[0-9]+"))
                 .willReturn(aResponse()
-                        .withBodyFile("resource-api-responses/get_employee_OK_response.json")
+                        .withBodyFile("resource-server-responses/get_employee_OK_response.json")
                         .withHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE)
                         .withStatus(HttpStatus.OK.value())));
     }

@@ -1,11 +1,14 @@
 # java-spring-oauth2-client
-An Oauth2 client application which gets data from a resource server, using a token from a 
-spring authorization server.
+An Oauth2 client application which consumes a [resource server API](https://github.com/eiriktve/ktor-oauth2-resource-server-api), 
+using a token fetched from a [Spring Authorization Server](https://github.com/eiriktve/kotlin-spring-oauth2-authorization-server).
+
+Just follow the links above to see my other oauth applications, which covers all the integrations for a complete Oauth2
+setup. 
 
 ## Technologies
 - Java 21
 - Gradle
 - Spring boot 3.x
-- Oauth2 Client using the client credentials grant
+- Spring Oauth2 Client
 - Token protected OpenAPI docs
 - Integration tests with wiremock and WebTestClient
