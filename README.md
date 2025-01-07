@@ -11,7 +11,8 @@ setup.
 - Spring boot 3.x
 - Spring Oauth2 Client
 - Token protected OpenAPI docs
-- Integration tests with wiremock and WebTestClient
+- Metrics with Spring Actuator
+- Integration tests with Wiremock and WebTestClient
 
 ## API-docs
 OpenAPI / Swagger docs are available at **/swagger**

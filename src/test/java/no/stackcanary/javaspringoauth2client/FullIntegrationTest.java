@@ -25,7 +25,6 @@ class FullIntegrationTest extends IntegrationTestBase {
                     assert response.employee().certifications().size() == 2;
                     assert response.employee().employer() != null;
                     assert response.employee().employer().name().equals("Big International Firm");
-
                 });
     }
 }

@@ -4,7 +4,7 @@ webclient-log-level: INFO
 server:
   port: ${PORT:8080}
 
-management: # actuator
+management: # Actuator
   server:
     port: 8081
 
