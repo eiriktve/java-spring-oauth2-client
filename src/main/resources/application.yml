@@ -1,3 +1,18 @@
+resource-server-url: ${RESOURCE_SERVER_URL}
+webclient-log-level: INFO
+
+server:
+  port: ${PORT:8080}
+
+management: # actuator
+  server:
+    port: 8081
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    path: /swagger
+
 spring:
   application:
     name: "java-spring-oauth2-client"
@@ -6,21 +21,14 @@ spring:
       client:
         provider:
           stackcanary:
-            token-uri: ${ISSUER_URL:http://localhost:9000/oauth2/token}
+            token-uri: ${ISSUER_URL}
         registration:
           stackcanary:
-            clientId: ${CLIENT_ID:stackcanary-client}
-            clientSecret: ${CLIENT_SECRET:hunter2}
+            clientId: ${CLIENT_ID}
+            clientSecret: ${CLIENT_SECRET}
             authorization-grant-type: client_credentials
             scope:
               - employee.read
               - employee.edit
               - employee.create
               - employee.delete
-
-
-resource-server-url: ${RESOURCE_SERVER_URL:"http://localhost:8081"}
-webclient-log-level: INFO
-
-server:
-  port: ${PORT:8080}

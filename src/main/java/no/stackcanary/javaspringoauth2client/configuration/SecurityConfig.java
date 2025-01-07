@@ -8,14 +8,13 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class SecurityConfiguration {
+public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // We only want this application to act as a client, not as a resource server as well
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .oauth2Client(Customizer.withDefaults())
+                .oauth2Client(Customizer.withDefaults()) // We only want this application to act as a client, not as a resource server as well
                 .build();
     }
 }

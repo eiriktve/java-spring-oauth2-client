@@ -1,0 +1,8 @@
+RESOURCE_SERVER_URL: http://localhost:8181
+ISSUER_URL: http://localhost:9000/oauth2/token
+CLIENT_ID: stackcanary-client
+CLIENT_SECRET: hunter2
+
+logging:
+  level:
+    org.springframework.security: DEBUG

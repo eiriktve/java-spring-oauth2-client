@@ -1,6 +1,5 @@
 package no.stackcanary.javaspringoauth2client.configuration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.handler.logging.LogLevel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientProperties;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class WebclientConfiguration {
+public class WebclientConfig {
 
     @Primary
     @Bean
