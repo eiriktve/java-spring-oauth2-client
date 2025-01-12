@@ -13,7 +13,7 @@ public class ApplicationConfig {
     @Bean
     public ObjectMapper objectMapper() {
         val mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule()); // support for java 8 types like LocalDate and LocalDateTime
+        mapper.registerModule(new JavaTimeModule()); // Support for java 8 types like LocalDate and LocalDateTime
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); // Ensure ISO-8601 format
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         return mapper;

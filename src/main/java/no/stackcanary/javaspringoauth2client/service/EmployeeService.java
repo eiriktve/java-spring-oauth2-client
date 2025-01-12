@@ -20,10 +20,10 @@ public class EmployeeService {
     private final ObjectMapper mapper;
 
     public EmployeeResponse getEmployee(String id) {
-        return resourceService.getEmployee(id).orElseGet(() -> null);
+        return resourceService.getEmployee(id).orElse(null);
     }
     public EmployeeResponse updateEmployee(String id, EmployeeRequest request) {
-        return resourceService.updateEmployee(id, request).orElseGet(() -> null);
+        return resourceService.updateEmployee(id, request).orElse(null);
     }
 
     public IdResponse createEmployee(EmployeeRequest employeeResponse) {
@@ -34,12 +34,10 @@ public class EmployeeService {
             throw new ApplicationRuntimeException(e);
         }
 
-        val response = resourceService.createEmployee(employeeResponse);
-        return response;
-
+        return resourceService.createEmployee(employeeResponse);
     }
 
     public IdResponse deleteEmployee(String id) {
-        return resourceService.deleteEmployee(id).orElseGet(() -> null);
+        return resourceService.deleteEmployee(id).orElse(null);
     }
 }

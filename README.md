@@ -17,3 +17,6 @@ you can use to set up your own client application.
 
 ## API-docs
 OpenAPI / Swagger docs are available at **server:port/swagger**
+
+## Postman
+There's a postman collection located [here](/postman).

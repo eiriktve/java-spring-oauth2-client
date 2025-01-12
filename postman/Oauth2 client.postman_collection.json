@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "a9ae8832-53cc-4ce1-8420-bd2fe533e071",
+		"name": "Oauth2 client",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11463340"
+	},
+	"item": [
+		{
+			"name": "get employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/64",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/64",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"create test\",\r\n    \"lastName\": \"test\",\r\n    \"email\": \"test@test.no\",\r\n    \"position\": \"Lead Consultant\",\r\n    \"employerId\": 5,\r\n    \"certifications\": [\r\n        {\r\n            \"name\": \"AWS Cloud Practitioneer\",\r\n            \"authority\": \"Amazon\",\r\n            \"dateEarned\": \"2024-05-19\",\r\n            \"expiryDate\": \"2024-07-08\"\r\n        },\r\n        {\r\n            \"name\": \"Certified Scrum Master (SCM)\",\r\n            \"authority\": \"Glasspaper\",\r\n            \"dateEarned\": \"2024-05-19\",\r\n            \"expiryDate\": \"2024-07-08\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"update test\",\r\n    \"lastName\": \"test\",\r\n    \"email\": \"test@test.no\",\r\n    \"position\": \"Lead Consultant\",\r\n    \"employerId\": 5,\r\n    \"certifications\": [\r\n        {\r\n            \"name\": \"AWS Cloud Practitioneer\",\r\n            \"authority\": \"Amazon\",\r\n            \"dateEarned\": \"2024-05-19\",\r\n            \"expiryDate\": \"2024-07-08\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/64",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"64"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
