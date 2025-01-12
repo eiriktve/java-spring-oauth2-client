@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import no.stackcanary.javaspringoauth2client.error.ApplicationRuntimeException;
-import no.stackcanary.javaspringoauth2client.resource.dto.EmployeeResponse;
-import no.stackcanary.javaspringoauth2client.resource.dto.IdResponse;
-import no.stackcanary.javaspringoauth2client.resource.model.Employee;
+import no.stackcanary.javaspringoauth2client.resource.dto.request.EmployeeRequest;
+import no.stackcanary.javaspringoauth2client.resource.dto.response.IdResponse;
+import no.stackcanary.javaspringoauth2client.resource.dto.response.EmployeeResponse;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,36 +17,29 @@ import org.springframework.stereotype.Service;
 public class EmployeeService {
 
     private final ResourceServerConsumerService resourceService;
-
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
 
     public EmployeeResponse getEmployee(String id) {
-        return resourceService.getEmployee(id)
-                .map(EmployeeResponse::new)
-                .orElseGet(() -> null);
+        return resourceService.getEmployee(id).orElseGet(() -> null);
     }
-    public EmployeeResponse updateEmployee(String id, Employee employee) {
-        return resourceService.updateEmployee(id, employee)
-                .map(EmployeeResponse::new)
-                .orElseGet(() -> null);
+    public EmployeeResponse updateEmployee(String id, EmployeeRequest request) {
+        return resourceService.updateEmployee(id, request).orElseGet(() -> null);
     }
 
-    public IdResponse createEmployee(Employee employee) {
+    public IdResponse createEmployee(EmployeeRequest employeeResponse) {
         try {
-            val employeeAsString = mapper.writeValueAsString(employee);
+            val employeeAsString = mapper.writeValueAsString(employeeResponse);
             log.info("Attempting to create the following employee in the resource server: {}", employeeAsString);
         } catch (JsonProcessingException e) {
             throw new ApplicationRuntimeException(e);
         }
 
-        return resourceService.createEmployee(employee)
-                .map(employeeId -> new IdResponse(String.valueOf(employeeId), "Employee created"))
-                .orElseGet(() -> null);
+        val response = resourceService.createEmployee(employeeResponse);
+        return response;
+
     }
 
     public IdResponse deleteEmployee(String id) {
-        return resourceService.deleteEmployee(id)
-                .map(employeeId -> new IdResponse(String.valueOf(employeeId), "Employee deleted"))
-                .orElseGet(() -> null);
+        return resourceService.deleteEmployee(id).orElseGet(() -> null);
     }
 }

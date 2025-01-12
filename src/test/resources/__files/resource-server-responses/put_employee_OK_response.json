@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "firstName": "Firstname",
+  "lastName": "Lastname",
+  "email": "test@test.no",
+  "position": "Principal Engineer",
+  "employer": {
+    "id": 1,
+    "name": "Big International Firm",
+    "businessArea": "IT"
+  },
+  "certifications": [
+    {
+      "id": 1,
+      "name": "AWS Cloud Practitioner",
+      "authority": "Amazon",
+      "dateEarned": "2024-05-19",
+      "expiryDate": "2024-07-08"
+    },
+    {
+      "id": 2,
+      "name": "Certified Scrum Master (SCM)",
+      "authority": "Glasspaper",
+      "dateEarned": "2024-05-19",
+      "expiryDate": "2024-07-08"
+    }
+  ]
+}
