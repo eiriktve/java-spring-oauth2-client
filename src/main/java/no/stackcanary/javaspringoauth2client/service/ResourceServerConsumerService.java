@@ -26,7 +26,7 @@ public class ResourceServerConsumerService {
     private static final String POST_PATH = "/employee";
     private static final String OAUTH_CLIENT_REGISTRATION_ID = "stackcanary";
 
-    private static final UnaryOperator<String> NOT_FOUND_MESSAGE = id -> "Resource server returned NotFound for Employee with id" + id;
+    private static final UnaryOperator<String> NOT_FOUND_MESSAGE = id -> "Resource server returned NotFound for Employee with id " + id;
 
     private final WebClient client;
 
@@ -45,6 +45,7 @@ public class ResourceServerConsumerService {
                 .onErrorMap(Throwable.class, t -> this.handleError(GET_PUT_DELETE_PATH, HttpMethod.GET, t))
                 .block();
     }
+
     public Optional<EmployeeResponse> updateEmployee(String id, EmployeeRequest request) {
         log.info("Updating employee with id {}", id);
         return client.put()
@@ -63,7 +64,6 @@ public class ResourceServerConsumerService {
     }
 
     public IdResponse createEmployee(EmployeeRequest request) {
-        log.info("Creating new employee with name {}", request.firstName());
         return client.post()
                 .uri(POST_PATH)
                 .attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId(OAUTH_CLIENT_REGISTRATION_ID))

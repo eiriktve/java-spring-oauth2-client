@@ -2,8 +2,8 @@ package no.stackcanary.javaspringoauth2client.resource;
 
 import lombok.RequiredArgsConstructor;
 import no.stackcanary.javaspringoauth2client.resource.dto.request.EmployeeRequest;
-import no.stackcanary.javaspringoauth2client.resource.dto.response.IdResponse;
 import no.stackcanary.javaspringoauth2client.resource.dto.response.EmployeeResponse;
+import no.stackcanary.javaspringoauth2client.resource.dto.response.IdResponse;
 import no.stackcanary.javaspringoauth2client.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -24,28 +24,22 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<EmployeeResponse> getEmployee(@PathVariable String id) {
-        final EmployeeResponse employeeResponse = service.getEmployee(id);
-        if (employeeResponse == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(employeeResponse);
+        return service.getEmployee(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<EmployeeResponse> updateEmployee(@PathVariable String id, @RequestBody EmployeeRequest request) {
-        final EmployeeResponse employeeResponse = service.updateEmployee(id, request);
-        if (employeeResponse == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(employeeResponse);
+        return service.updateEmployee(id, request)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<IdResponse> deleteEmployee(@PathVariable String id) {
-        final IdResponse idResponse = service.deleteEmployee(id);
-        if (idResponse == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(idResponse);
+        return service.deleteEmployee(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }
